@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="pF1u73GGhc5GY88-13Jz" name="Page-1">
+        <mxGraphModel dx="839" dy="1079" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Elemento&lt;br&gt;personalizado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="-10" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Método" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000066;fontColor=#ffffff;strokeColor=#0000CC;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="-10" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Evento" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#003300;fontColor=#ffffff;strokeColor=#009900;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="-10" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Variable" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;fontColor=#ffffff;strokeColor=#CC6600;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="-10" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Tarea" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333300;fontColor=#ffffff;strokeColor=#999900;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="40" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Error" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330000;fontColor=#ffffff;strokeColor=#990000;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="40" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Pendiente" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#003333;fontColor=#ffffff;strokeColor=#009999;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="40" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;html=1;" edge="1" parent="1" source="21" target="44">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=none;html=1;" edge="1" parent="1" source="21" target="49">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=none;html=1;" edge="1" parent="1" source="21" target="55">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="dt-handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="155" y="200" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Query" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33001A;fontColor=#ffffff;strokeColor=#99004D;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="40" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Atributo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A1A1A;fontColor=#ffffff;strokeColor=#4D4D4D;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="-10" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="elements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;fontColor=#ffffff;strokeColor=#CC6600;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="280" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;" edge="1" parent="1" source="44" target="43">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Referencia a los elementos de la aplicación" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333300;fontColor=#ffffff;strokeColor=#999900;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="280" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" style="edgeStyle=none;html=1;" edge="1" parent="1" source="49" target="50">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="Referencia a la configuración de la aplicación" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333300;fontColor=#ffffff;strokeColor=#999900;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="360" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#663300;fontColor=#ffffff;strokeColor=#CC6600;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="360" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="displayModalMenu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#000066;fontColor=#ffffff;strokeColor=#0000CC;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="440" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" style="edgeStyle=none;html=1;" edge="1" parent="1" source="55" target="54">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="Establece las tareas a implementar al dar click derecho sobre un elemento" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333300;fontColor=#ffffff;strokeColor=#999900;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="430" width="160" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

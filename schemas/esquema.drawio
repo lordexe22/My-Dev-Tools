@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="pF1u73GGhc5GY88-13Jz" name="Page-1">
-        <mxGraphModel dx="852" dy="1122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="587" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -25,38 +25,20 @@
                 <mxCell id="8" value="Pendiente" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#003333;fontColor=#ffffff;strokeColor=#009999;gradientColor=none;" parent="1" vertex="1">
                     <mxGeometry x="210" y="40" width="80" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="dt-header" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="480" y="280" width="90" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="20" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="10" target="18" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="dt-nav" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="480" y="360" width="90" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="11" value="dt-main" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="480" y="440" width="90" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="22" style="edgeStyle=none;html=1;" edge="1" parent="1" source="12" target="21">
+                <mxCell id="22" style="edgeStyle=none;html=1;" parent="1" source="12" target="21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="DOM-Content-Loaded" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#003300;fontColor=#ffffff;strokeColor=#009900;gradientColor=none;" parent="1" vertex="1">
                     <mxGeometry x="120" y="120" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="Pedir lista desplegable a la API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333300;fontColor=#ffffff;strokeColor=#999900;gradientColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="640" y="360" width="120" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="23" style="edgeStyle=elbowEdgeStyle;html=1;" edge="1" parent="1" source="21" target="9">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="24" style="edgeStyle=elbowEdgeStyle;html=1;" edge="1" parent="1" source="21" target="10">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="25" style="edgeStyle=elbowEdgeStyle;html=1;" edge="1" parent="1" source="21" target="11">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="21" value="dt-page-maker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" vertex="1" parent="1">
+                <mxCell id="21" value="dt-handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#330066;fontColor=#ffffff;strokeColor=#6600CC;gradientColor=none;" parent="1" vertex="1">
                     <mxGeometry x="155" y="200" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Query" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33001A;fontColor=#ffffff;strokeColor=#99004D;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="40" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Atributo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1A1A1A;fontColor=#ffffff;strokeColor=#4D4D4D;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="-10" width="80" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
