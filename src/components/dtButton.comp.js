@@ -12,6 +12,14 @@ class DtButton extends DtMain{
         backgroundColor: "#259",
         fontFamily: "Arial",        
         fontSize: 14,
+        borderWidth: '3',
+        borderColor: '#000000',
+        borderStyle: 'solid',
+        borderRadius: '0',
+        backgroundColor: '#1f6f8f',   
+    }
+    aux = {
+        tempTarget: null,
     }
 
     // MÉTODOS NATIVOS DEL ELEMENTO ------------------------------------------------------------
@@ -59,6 +67,57 @@ class DtButton extends DtMain{
                 child.classList.remove('hidden');
             }
         }
+        // ⁡⁢⁣⁣Lógica para generar un input de tipo range al dar click a un input de tipo number⁡
+        else if (e.target.classList.contains('input-number') && e.type === "click"){
+            // ⁡⁣⁣⁡⁣⁣⁢1 - Captura de datos relevantes⁡
+            const x = e.target.offsetLeft;
+            const y = e.target.offsetTop + e.target.offsetHeight;
+            const min = e.target.getAttribute('min');
+            const max = e.target.getAttribute('max');
+            const field = e.target.getAttribute('field');
+            const value = e.target.getAttribute('value');
+            const measure = e.target.getAttribute('measure');
+            this.aux.tempTarget = e.target;
+            // ⁡⁣⁣⁢2 - Creación y definición del input de tipo range⁡
+            const $inputRangeContainer = document.createElement('div');
+            $inputRangeContainer.innerHTML = `
+                <input name="modal-range-input" 
+                       min=${min} max=${max} field=${field} value=${value} measure=${measure} type="range">
+            `
+            $inputRangeContainer.style.cssText = `
+                position: absolute;
+                top: ${y}px;
+                left: ${x}px;
+                background-color: white;
+                padding: 5px;
+                border: thin solid black;
+            `;
+            $inputRangeContainer.classList.add('modal-input-range-container')
+            document.body.appendChild($inputRangeContainer);
+            // ⁡⁣⁣⁢3 - Adición de eventos para eliminar y actuarlizar los valores de este input⁡
+            // Si pierde el foco el input es eliminado
+            const eventClick = document.addEventListener('mousedown', (e) => {
+                if(!e.target.closest('div.modal-input-range-container')){
+                    $inputRangeContainer.remove();
+                    document.removeEventListener('click', eventClick);
+                    this.aux.tempTarget = null;
+                }
+            })
+            $inputRangeContainer.addEventListener('input', this);
+        }
+        // ⁡⁢⁣⁣Lógica para manejar el comportamiento de los inputs de tipo range modales⁡
+        else if(e.target === document.body.querySelector('body > div > input[name=modal-range-input]') && e.type === 'input'){
+            const target = this.aux.tempTarget;
+            const value = e.target.value;
+            const field = e.target.getAttribute('field');
+            const measure = e.target.getAttribute('measure');
+
+            target.setAttribute('value', value);
+            e.target.setAttribute('value', value);
+
+            this.buttonData[field] = value;
+            this.updateButton(field, value+measure);
+        }
         // ⁡⁢⁣⁣Lógica de cambio en un input de tipo number⁡
         else if(e.target.classList.contains('input-number') && e.type === 'input'){
             const field = e.target.getAttribute('field'); // width, height, etc...
@@ -66,7 +125,7 @@ class DtButton extends DtMain{
             const measure = e.target.getAttribute('measure'); // px, %, rem, etc...
 
             e.target.setAttribute('value', value);
-            this.buttonData[field] = value+measure;
+            this.buttonData[field] = value;
             this.updateButton(field, value+measure);
         } 
         // ⁡⁢⁣⁣Lógica para procesar los inputs de tipo text⁡
@@ -80,6 +139,14 @@ class DtButton extends DtMain{
                 this.buttonData[field] = value;
             }
         }
+        // ⁡⁢⁣⁡⁢⁣⁣Lógica para procesar los inputs de tipo color⁡
+        else if(e.target.classList.contains('input-color') && e.type === 'input'){
+            const field = e.target.getAttribute('field'); // width, height, etc...
+            const value = e.target.value;
+            e.target.setAttribute('value', value);
+            this.buttonData[field] = value;
+            this.updateButton(field, value);
+        }
         // ⁡⁢⁣⁣Lógica de cambio en un select⁡ 
         else if(e.target.classList.contains('input-select') && e.type === 'change'){
             const value = e.target.value;
@@ -87,7 +154,16 @@ class DtButton extends DtMain{
             this.buttonData[field] = value;
             this.updateButton(field, value);
         }
-
+        // ⁡⁢⁣⁣Lógica al habilitar el checkbox⁡
+        else if(e.target.classList.contains('border-checkbox') && e.type === 'change'){
+            const value = e.target.checked;
+            const borderStyle = value 
+            ? (this.buttonData['borderStyle'] = 'solid')
+            : this.buttonData['borderStyle'] = 'none';
+            this.updateButton('borderWidth', this.buttonData['borderWidth']+'px');
+            this.updateButton('borderColor', this.buttonData['borderColor']);
+            this.updateButton('borderStyle', borderStyle);
+        }
     }
 
 
@@ -169,13 +245,16 @@ class DtButton extends DtMain{
                 .hidden{
                     display: none;
                 }
+                .input-checkbox{
+                    display: inline;
+                }
                 .input-container{
                     padding: 5px 20px; 
                     display: flex;
                     align-items: center;
                 }
                 .input-description{
-                    width: 15%;
+                    width: 25%;
                 }
                 .input-select{
                     width: 200px;
@@ -237,12 +316,10 @@ class DtButton extends DtMain{
                             <div>↓</div>
                         </button>                    
                         <div class="config-inputs hidden">
-
                             <div class="input-container">
                                 <div class="input-description">text content</div>
                                 <input class="input-text input-value" type="text" field="textContent" value=${this.buttonData.textContent} autocomplete="false">
                             </div>
-
                             <div class="input-container">
                                 <div class="input-description">font family</div>
                                 <select class="input-select input-value" value="Arial" field="fontFamily">
@@ -258,7 +335,6 @@ class DtButton extends DtMain{
                                     <option>Verdana</option>
                                 </select>
                             </div>
-
                             <div class="input-container">
                                 <div class="input-description">font weight</div>
                                 <select class="input-select input-value" value="100" field="fontWeight">
@@ -276,12 +352,59 @@ class DtButton extends DtMain{
                                     <option>lighter</option>
                                 </select>
                             </div>
-
                             <div class="input-container">
                                 <div class="input-description">font size</div>
                                 <input class="input-number input-value" type="number" min="2" max="100" field="fontSize" value=${this.buttonData.fontSize} measure="px" >
                             </div>
+                        </div>
+                    </div>
+                    <!----------------------------------------------------------------------------------------->
+                    <div class="section">
+                        <button class="extend">
+                            <h3>Border properties</h3>
+                            <div>↓</div>
+                        </button>
+                        <div class="config-inputs hidden">
+
+                            <div class="input-container">
+                                <div class="input-description">set border</div>
+                                <input class="input-checkbox input-value border-checkbox" type="checkbox" value="true" field="border">
+                            </div>
     
+                            <div class="input-container">
+                                <div class="input-description">border width</div>
+                                <input class="input-number input-value" type="number" min="0" max="100" field="borderWidth" value=${this.buttonData.borderWidth} measure="px">
+                            </div>
+
+                            <div class="input-container">
+                                <div class="input-description">border radius</div>
+                                <input class="input-number input-value" type="number" min="0" max="200" field="borderRadius" value=${this.buttonData.borderRadius} measure="px">
+                            </div>
+    
+                            <div class="input-container">
+                                <div class="input-description">border color</div>
+                                <input class="input-color input-value" type="color" field="borderColor" value=${this.buttonData.borderColor}>
+                            </div>
+
+                            <div class="input-container">
+                                <div class="input-description">border style</div>
+                                <select class="input-select input-value" value=${this.buttonData.borderStyle} field="borderStyle">
+                                    <option>dashed</option>
+                                    <option>dotted</option>
+                                    <option>double</option>
+                                    <option>groove</option>
+                                    <option>hidden</option>
+                                    <option>inherit</option>
+                                    <option>initial</option>
+                                    <option>inset</option>
+                                    <option>none</option>
+                                    <option>outset</option>
+                                    <option>ridge</option>
+                                    <option>solid</option>
+                                    <option>unset</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
                     <!----------------------------------------------------------------------------------------->
@@ -291,10 +414,13 @@ class DtButton extends DtMain{
                             <div>↓</div>
                         </button>
                         <div class="config-inputs hidden">
-                            CONTENIDO RELACIONADO AL COLOR
+                            <div class="input-container">
+                                <div class="input-description">background color</div>
+                                <input class="input-color input-value" type="color" field="backgroundColor" value=${this.buttonData.backgroundColor}>
+                            </div>
                         </div>
                     </div>
-                    <!----------------------------------------------------------------------------------------->
+                    <!----------------------------------------------------------------------------------------->                
                 </div>
 
                 <div class="preview">
@@ -327,6 +453,13 @@ class DtButton extends DtMain{
             inputText.addEventListener('input', this);
         });
 
+        const inputColorArray = this.shadowRoot.querySelectorAll('.input-color');
+        inputColorArray.forEach(inputColor => {
+            inputColor.addEventListener('input', this);
+        });
+
+        const borderCheckbox = this.shadowRoot.querySelector('.border-checkbox');
+        borderCheckbox.addEventListener('change', this);
     }
 
     /** Actualiza el estilo del botón aplicando el campo y valor pasado como argumentos. */
